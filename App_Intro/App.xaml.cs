@@ -13,5 +13,6 @@ namespace App_Intro
     /// </summary>
     public partial class App : Application
     {
+        public Manager Manager { get; set; } = new Manager();
     }
 }
