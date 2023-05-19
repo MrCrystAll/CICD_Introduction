@@ -1,0 +1,18 @@
+on: [push, pull_request]
+
+jobs:
+  first-job:
+    runs-on: ubuntu-latest
+    name: first-job
+    steps:
+      - name: Greetings
+        env: 
+          FIRST_NAME: Mathieu
+          LAST_NAME: Suchet
+        run: echo $FIRST_NAME $LAST_NAME.
+        
+      - name: The actual job
+        run: |
+          echo "Doing it's job..."
+          sleep 3
+          echo "Job ended!"
