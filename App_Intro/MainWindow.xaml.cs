@@ -24,5 +24,10 @@ namespace App_Intro
         {
             InitializeComponent();
         }
+
+        private void Click_ShowHide(object sender, RoutedEventArgs e)
+        {
+            TextToShowHide.Visibility = TextToShowHide.Visibility == Visibility.Visible ? Visibility.Hidden : Visibility.Visible;
+        }
     }
 }

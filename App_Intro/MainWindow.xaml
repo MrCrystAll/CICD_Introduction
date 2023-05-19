@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:App_Intro"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
-    </Grid>
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Button Content="Show/Hide Text" Click="Click_ShowHide" Padding="5"/>
+        <TextBlock x:Name="TextToShowHide" TextAlignment="Center" Margin="10">Some text</TextBlock>
+    </StackPanel>
 </Window>
