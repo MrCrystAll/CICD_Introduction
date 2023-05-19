@@ -1,0 +1,69 @@
+﻿<Window x:Class="App_Intro.Details"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        mc:Ignorable="d"
+        Title="Details" Height="450" Width="800">
+    <StackPanel Margin="10">
+        <TextBlock Style="{StaticResource Title}">
+            <TextBlock.Text>
+                <MultiBinding StringFormat="{}Details of {0}">
+                    <Binding Path="Name.English"></Binding>
+                </MultiBinding>
+            </TextBlock.Text>
+        </TextBlock>
+
+        <Image Source="{Binding Path=Sprite}" Width="50" HorizontalAlignment="Left" />
+
+        <StackPanel Margin="10">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition MinWidth="150" />
+                    <ColumnDefinition MinWidth="50" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" Text="HP : " Style="{StaticResource ListItemHeader}" />
+                <TextBlock Grid.Row="1" Text="Attack : " Style="{StaticResource ListItemHeader}" />
+                <TextBlock Grid.Row="2" Text="Defense : " Style="{StaticResource ListItemHeader}" />
+                <TextBlock Grid.Row="3" Text="Special Attack : " Style="{StaticResource ListItemHeader}" />
+                <TextBlock Grid.Row="4" Text="Special Defense : " Style="{StaticResource ListItemHeader}" />
+                <TextBlock Grid.Row="5" Text="Speed : " Style="{StaticResource ListItemHeader}" />
+
+                <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding BaseStats.HP}" />
+                <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding BaseStats.Attack}" />
+                <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding BaseStats.Defense}" />
+                <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding BaseStats.SpAttack}" />
+                <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding BaseStats.SpDefense}" />
+                <TextBlock Grid.Row="5" Grid.Column="1" Text="{Binding BaseStats.Speed}" />
+            </Grid>
+
+            <WrapPanel Margin="0,10" MinWidth="150">
+                <TextBlock Text="Type(s) : " Margin="0,0,10,0" />
+                <ListBox ItemsSource="{Binding Types}" MaxWidth="300" HorizontalAlignment="Left" BorderThickness="0"
+                         Margin="0,-3">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding}" />
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel IsItemsHost="True" MaxWidth="75"></WrapPanel>
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+                </ListBox>
+            </WrapPanel>
+
+        </StackPanel>
+
+    </StackPanel>
+</Window>

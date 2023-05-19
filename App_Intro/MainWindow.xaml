@@ -6,8 +6,32 @@
         xmlns:local="clr-namespace:App_Intro"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-        <Button Content="Show/Hide Text" Click="Click_ShowHide" Padding="5"/>
-        <TextBlock x:Name="TextToShowHide" TextAlignment="Center" Margin="10">Some text</TextBlock>
-    </StackPanel>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Border BorderThickness="1" BorderBrush="Black" Margin="10" Padding="10" CornerRadius="5" VerticalAlignment="Center">
+            <ListBox ItemsSource="{Binding}" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Auto" SelectionChanged="OnPokemonClicked">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Path=Name.English}"></TextBlock>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel IsItemsHost="True"></WrapPanel>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+            </ListBox>
+        </Border>
+
+        <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+
+            <Button Content="Show/Hide Text" Click="Click_ShowHide" Padding="5" />
+            <TextBlock x:Name="TextToShowHide" TextAlignment="Center" Margin="10">Some text</TextBlock>
+        </StackPanel>
+    </Grid>
+
 </Window>
