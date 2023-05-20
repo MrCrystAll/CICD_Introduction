@@ -3,8 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:appIntro="clr-namespace:App_Intro"
         mc:Ignorable="d"
-        Title="Details" Height="450" Width="800">
+        Title="Details" Height="700" Width="800">
     <StackPanel Margin="10">
         <TextBlock Style="{StaticResource Title}">
             <TextBlock.Text>
@@ -17,34 +18,7 @@
         <Image Source="{Binding Path=Sprite}" Width="50" HorizontalAlignment="Left" />
 
         <StackPanel Margin="10">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition MinWidth="150" />
-                    <ColumnDefinition MinWidth="50" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
-                </Grid.RowDefinitions>
-
-                <TextBlock Grid.Row="0" Text="HP : " Style="{StaticResource ListItemHeader}" />
-                <TextBlock Grid.Row="1" Text="Attack : " Style="{StaticResource ListItemHeader}" />
-                <TextBlock Grid.Row="2" Text="Defense : " Style="{StaticResource ListItemHeader}" />
-                <TextBlock Grid.Row="3" Text="Special Attack : " Style="{StaticResource ListItemHeader}" />
-                <TextBlock Grid.Row="4" Text="Special Defense : " Style="{StaticResource ListItemHeader}" />
-                <TextBlock Grid.Row="5" Text="Speed : " Style="{StaticResource ListItemHeader}" />
-
-                <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding BaseStats.HP}" />
-                <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding BaseStats.Attack}" />
-                <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding BaseStats.Defense}" />
-                <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding BaseStats.SpAttack}" />
-                <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding BaseStats.SpDefense}" />
-                <TextBlock Grid.Row="5" Grid.Column="1" Text="{Binding BaseStats.Speed}" />
-            </Grid>
+            <appIntro:StatsDisplayer Stats="{Binding BaseStats}" />
 
             <WrapPanel Margin="0,10" MinWidth="150">
                 <TextBlock Text="Type(s) : " Margin="0,0,10,0" />
@@ -62,6 +36,119 @@
                     </ListBox.ItemsPanel>
                 </ListBox>
             </WrapPanel>
+
+            <TextBlock Text="Get stats for : " Margin="0,10"></TextBlock>
+            <WrapPanel>
+                <WrapPanel Margin="10,10">
+                    <Label Content="Level"></Label>
+                    <TextBox Width="50" Text="{Binding Path=BaseStats.Level, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center" VerticalAlignment="Center"></TextBox>
+                </WrapPanel>
+                <Border BorderThickness="1" BorderBrush="Black" CornerRadius="5" Padding="5"
+                        d:DataContext="{d:DesignInstance appIntro:Pokemon}">
+                <Border.Resources>
+                    <Style TargetType="ContentControl" x:Key="Dark">
+                        <Setter Property="Background" Value="Gray"/>
+                    </Style>
+                    
+                    <Style TargetType="ContentControl" x:Key="Light">
+                        <Setter Property="Background" Value="LightGray"/>
+                    </Style>
+                    
+                    <Style TargetType="TextBox" x:Key="BaseDarkBox">
+                        <Setter Property="Background" Value="Green"/>
+                    </Style>
+                    
+                    <Style TargetType="TextBox" x:Key="BaseLightBox">
+                        <Setter Property="Background" Value="LightGreen"/>
+                    </Style>
+                    
+                    <Style TargetType="TextBox" x:Key="EVTextDark" BasedOn="{StaticResource BaseDarkBox}">
+                        <Setter Property="Text" Value="31"/>
+                        <Setter Property="Width" Value="80"/>
+                        <Setter Property="Height" Value="80"/>
+                        <Setter Property="TextAlignment" Value="Center"/>
+                        <Setter Property="BorderThickness" Value="0"/>
+                        <Setter Property="VerticalContentAlignment" Value="Center"/>
+                    </Style>
+                    <Style TargetType="TextBox" x:Key="EVTextLight" BasedOn="{StaticResource BaseLightBox}">
+                        <Setter Property="Text" Value="31"/>
+                        <Setter Property="Width" Value="80"/>
+                        <Setter Property="Height" Value="80"/>
+                        <Setter Property="TextAlignment" Value="Center"/>
+                        <Setter Property="BorderThickness" Value="0"/>
+                        <Setter Property="VerticalContentAlignment" Value="Center"/>
+                    </Style>
+                    <Style TargetType="TextBox" x:Key="IVTextDark" BasedOn="{StaticResource BaseDarkBox}">
+                        <Setter Property="VerticalAlignment" Value="Center"/>
+                        <Setter Property="Text" Value="0"/>
+                        <Setter Property="Width" Value="80"/>
+                        <Setter Property="Height" Value="80"/>
+                        <Setter Property="TextAlignment" Value="Center"/>
+                        <Setter Property="BorderThickness" Value="0"/>
+                        <Setter Property="VerticalContentAlignment" Value="Center"/>
+                    </Style>
+                    <Style TargetType="TextBox" x:Key="IVTextLight" BasedOn="{StaticResource BaseLightBox}">
+                        <Setter Property="VerticalAlignment" Value="Center"/>
+                        <Setter Property="Text" Value="0"/>
+                        <Setter Property="Width" Value="80"/>
+                        <Setter Property="Height" Value="80"/>
+                        <Setter Property="TextAlignment" Value="Center"/>
+                        <Setter Property="BorderThickness" Value="0"/>
+                        <Setter Property="VerticalContentAlignment" Value="Center"/>
+                    </Style>
+                </Border.Resources>
+                    <WrapPanel>
+                        <StackPanel>
+                            <Label Content="" HorizontalContentAlignment="Center" Style="{StaticResource Dark}"/>
+                            <Label Content="EV" Height="80" VerticalContentAlignment="Center"  Style="{StaticResource Light}"/>
+                            <Label Content="IV" Height="80" VerticalContentAlignment="Center"  Style="{StaticResource Dark}"/>
+                        </StackPanel>
+                        
+                        <StackPanel>
+                            <Label Content="HP" HorizontalContentAlignment="Center" Style="{StaticResource Light}"/>
+                            <TextBox Style="{StaticResource EVTextDark}" Text="{Binding BaseStats.EVs[0], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                            <TextBox Style="{StaticResource IVTextLight}" Text="{Binding BaseStats.IVs[0], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        </StackPanel>
+                        
+
+                        <StackPanel>
+                            <Label Content="Attack" HorizontalContentAlignment="Center" Style="{StaticResource Dark}"/>
+                            
+                            <TextBox Style="{StaticResource EVTextLight}" Text="{Binding BaseStats.EVs[1], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                            <TextBox Style="{StaticResource IVTextDark}" Text="{Binding BaseStats.IVs[1], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        </StackPanel>
+                        
+                        <StackPanel>
+                            <Label Content="Defense" HorizontalContentAlignment="Center" Style="{StaticResource Light}" />
+                            
+                            <TextBox Style="{StaticResource EVTextDark}" Text="{Binding BaseStats.EVs[2], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                            <TextBox Style="{StaticResource IVTextLight}" Text="{Binding BaseStats.IVs[2], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        </StackPanel>
+                       
+
+                        <StackPanel>
+                            <Label Content="SpAttack" HorizontalContentAlignment="Center" Style="{StaticResource Dark}"/>
+                            <TextBox Style="{StaticResource EVTextLight}" Text="{Binding BaseStats.EVs[3], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                            <TextBox Style="{StaticResource IVTextDark}" Text="{Binding BaseStats.IVs[3], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        </StackPanel>
+
+                        <StackPanel>
+                            <Label Content="SpDefense" HorizontalContentAlignment="Center" Style="{StaticResource Light}" />
+                            
+                            <TextBox Style="{StaticResource EVTextDark}" Text="{Binding BaseStats.EVs[4], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                            <TextBox Style="{StaticResource IVTextLight}" Text="{Binding BaseStats.IVs[4], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        </StackPanel>
+                        
+                        <StackPanel>
+                            <Label Content="Speed" HorizontalContentAlignment="Center" Style="{StaticResource Dark}"/>
+                            <TextBox Style="{StaticResource EVTextLight}" Text="{Binding BaseStats.EVs[5], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                            <TextBox Style="{StaticResource IVTextDark}" Text="{Binding BaseStats.IVs[5], Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        </StackPanel>
+                        
+                    </WrapPanel>
+            </Border>
+            </WrapPanel>
+            <appIntro:StatsDisplayer x:Name="NewStats"/>
 
         </StackPanel>
 
