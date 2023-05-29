@@ -42,18 +42,20 @@ public class Stats : INotifyPropertyChanged
     public ObservableCollection<int> EVs { get; set; } = new(){0, 0, 0, 0, 0, 0};
     public ObservableCollection<int> IVs { get; set; } = new(){0, 0, 0, 0, 0, 0};
 
-    private float OtherThanHPStatAt(float stat, int ev, int iv) => (float)Math.Floor(0.01 * (2 * stat  + iv + Math.Floor(ev * 0.25)) * Level) + 5;
+    private float OtherThanHPStatAt(float stat, int ev, int iv, uint level, float natureBoost) => (float)Math.Floor((Math.Floor(
+        0.01 * (2 * stat + iv + Math.Floor(ev * 0.25)) * level) + 5) * natureBoost);
 
-    public Stats CalculateStats()
+    public Stats CalculateStats(int level = -1, float natureBoost = 1)
     {
+        uint lvl = level < 0 ? Level : (uint)level;
         return new Stats
         {
-            HP = (float)Math.Floor(0.01 * (2 * HP + IVs[0] + Math.Floor(EVs[0] * 0.25)) * Level) + Level + 10,
-            Attack = OtherThanHPStatAt(Attack, EVs[1], IVs[1]),
-            Defense = OtherThanHPStatAt(Defense, EVs[2], IVs[2]),
-            SpAttack = OtherThanHPStatAt(SpAttack, EVs[3], IVs[3]),
-            SpDefense = OtherThanHPStatAt(SpDefense, EVs[4], IVs[4]),
-            Speed = OtherThanHPStatAt(Speed, EVs[5], IVs[5])
+            HP = (float)Math.Floor(0.01 * (2 * HP + IVs[0] + Math.Floor(EVs[0] * 0.25)) * lvl) + lvl + 10,
+            Attack = OtherThanHPStatAt(Attack, EVs[1], IVs[1], lvl, natureBoost),
+            Defense = OtherThanHPStatAt(Defense, EVs[2], IVs[2], lvl, natureBoost),
+            SpAttack = OtherThanHPStatAt(SpAttack, EVs[3], IVs[3], lvl, natureBoost),
+            SpDefense = OtherThanHPStatAt(SpDefense, EVs[4], IVs[4], lvl, natureBoost),
+            Speed = OtherThanHPStatAt(Speed, EVs[5], IVs[5], lvl, natureBoost)
         };
     }
 
