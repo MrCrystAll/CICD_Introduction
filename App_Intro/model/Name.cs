@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace App_Intro;
+namespace App_Intro.model;
 
 public class Name
 {
