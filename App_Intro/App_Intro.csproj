@@ -24,4 +24,8 @@
       </ApplicationDefinition>
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="data\types_sprites\" />
+    </ItemGroup>
+
 </Project>
