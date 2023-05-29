@@ -13,9 +13,15 @@ public class BaseStatToLevelStatsConverter : IMultiValueConverter
             return null;
         }
 
-        if (values[0] is Stats stats)
+        if (values[0] is not Stats stats) return null;
+        
+        try
         {
             return stats.CalculateStats((int)values[1], (float)values[2]);
+        }
+        catch (InvalidCastException)
+        {
+            return null;
         }
 
         return null;

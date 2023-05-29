@@ -3,10 +3,10 @@ using System.Windows.Controls;
 
 namespace App_Intro;
 
-public partial class DataRow : UserControl
+public partial class DataColumn : UserControl
 {
     public static readonly DependencyProperty TitleProperty = DependencyProperty.Register(
-        nameof(Title), typeof(string), typeof(DataRow), new PropertyMetadata(default(string)));
+        nameof(Title), typeof(string), typeof(DataColumn), new PropertyMetadata(default(string)));
     
     public string Title
     {
@@ -15,7 +15,7 @@ public partial class DataRow : UserControl
     }
 
     public static readonly DependencyProperty StatProperty = DependencyProperty.Register(
-        nameof(Stat), typeof(Stats), typeof(DataRow), new PropertyMetadata(default(Stats)));
+        nameof(Stat), typeof(Stats), typeof(DataColumn), new PropertyMetadata(default(Stats)));
 
     public Stats Stat
     {
@@ -24,7 +24,7 @@ public partial class DataRow : UserControl
     }
     
     
-    public DataRow()
+    public DataColumn()
     {
         InitializeComponent();
     }
