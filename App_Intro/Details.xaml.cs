@@ -10,8 +10,10 @@ namespace App_Intro;
 
 public partial class Details : Window
 {
+    
     public Details()
     {
+        
         InitializeComponent();
         var pokemon = (Application.Current as App).Manager.SelectedPokemon;
         DataContext = pokemon;

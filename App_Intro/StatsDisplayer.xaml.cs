@@ -5,17 +5,8 @@ using System.Windows;
 
 namespace App_Intro;
 
-public partial class StatsDisplayer
+public partial class StatsDisplayer : BaseStatsDisplayer
 {
-
-    public static readonly DependencyProperty StatsProperty = DependencyProperty.Register(
-        nameof(Stats), typeof(Stats), typeof(StatsDisplayer), new PropertyMetadata(default(Stats)));
-    public Stats Stats
-    {
-        get => (Stats)GetValue(StatsProperty);
-        set => SetValue(StatsProperty, value);
-    }
-    
     public StatsDisplayer()
     {
         InitializeComponent();

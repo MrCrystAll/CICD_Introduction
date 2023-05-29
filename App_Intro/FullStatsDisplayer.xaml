@@ -1,0 +1,248 @@
+﻿<local:BaseStatsDisplayer x:Class="App_Intro.FullStatsDisplayer"
+                          xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                          xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                          xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                          xmlns:local="clr-namespace:App_Intro"
+                          xmlns:system="clr-namespace:System;assembly=System.Runtime"
+                          mc:Ignorable="d" d:DesignWidth="300">
+    <Grid >
+        <Grid.Resources>
+            <local:BaseStatToLevelStatsConverter x:Key="BaseStatToLevelStatsConverter" />
+        </Grid.Resources>
+
+        <WrapPanel MinWidth="2000">
+            <Border BorderBrush="LightGray" BorderThickness="0.5">
+                <StackPanel>
+                    <Border BorderBrush="LightGray" BorderThickness="0.5">
+                        <Label Content="" />
+                    </Border>
+                    <Label Content="HP" />
+                    <Label Content="Attack" />
+                    <Label Content="Defense" />
+                    <Label Content="Sp. Attack" />
+                    <Label Content="Sp. Defense" />
+                    <Label Content="Speed" />
+                </StackPanel>
+            </Border>
+            <WrapPanel>
+                <local:DataRow Title="Level 25-">
+                    <local:DataRow.Resources>
+                        <system:Int32 x:Key="Level">25</system:Int32>
+                        <system:Single x:Key="NatureBoost">0.9</system:Single>
+                    </local:DataRow.Resources>
+                    <local:DataRow.Stat>
+                        <MultiBinding Converter="{StaticResource BaseStatToLevelStatsConverter}">
+                            <Binding Path="Stats"
+                                     RelativeSource="{RelativeSource AncestorType=local:FullStatsDisplayer}" />
+                            <Binding Source="{StaticResource Level}" />
+                            <Binding Source="{StaticResource NatureBoost}" />
+                        </MultiBinding>
+                    </local:DataRow.Stat>
+                </local:DataRow>
+                <local:DataRow Title="Level 25">
+                    <local:DataRow.Resources>
+                        <system:Int32 x:Key="Level">25</system:Int32>
+                        <system:Single x:Key="NatureBoost">1</system:Single>
+                    </local:DataRow.Resources>
+                    <local:DataRow.Stat>
+                        <MultiBinding Converter="{StaticResource BaseStatToLevelStatsConverter}">
+                            <Binding Path="Stats"
+                                     RelativeSource="{RelativeSource AncestorType=local:FullStatsDisplayer}" />
+                            <Binding Source="{StaticResource Level}" />
+                            <Binding Source="{StaticResource NatureBoost}" />
+                        </MultiBinding>
+                    </local:DataRow.Stat>
+                </local:DataRow>
+                <local:DataRow Title="Level 25+">
+                    <local:DataRow.Resources>
+                        <system:Int32 x:Key="Level">25</system:Int32>
+                        <system:Single x:Key="NatureBoost">1.1</system:Single>
+                    </local:DataRow.Resources>
+                    <local:DataRow.Stat>
+                        <MultiBinding Converter="{StaticResource BaseStatToLevelStatsConverter}">
+                            <Binding Path="Stats"
+                                     RelativeSource="{RelativeSource AncestorType=local:FullStatsDisplayer}" />
+                            <Binding Source="{StaticResource Level}" />
+                            <Binding Source="{StaticResource NatureBoost}" />
+                        </MultiBinding>
+                    </local:DataRow.Stat>
+                </local:DataRow>
+
+                <local:DataRow Title="Level 50-">
+                    <local:DataRow.Resources>
+                        <system:Int32 x:Key="Level">50</system:Int32>
+                        <system:Single x:Key="NatureBoost">0.9</system:Single>
+                    </local:DataRow.Resources>
+                    <local:DataRow.Stat>
+                        <MultiBinding Converter="{StaticResource BaseStatToLevelStatsConverter}">
+                            <Binding Path="Stats"
+                                     RelativeSource="{RelativeSource AncestorType=local:FullStatsDisplayer}" />
+                            <Binding Source="{StaticResource Level}" />
+                            <Binding Source="{StaticResource NatureBoost}" />
+                        </MultiBinding>
+                    </local:DataRow.Stat>
+                </local:DataRow>
+                <local:DataRow Title="Level 50">
+                    <local:DataRow.Resources>
+                        <system:Int32 x:Key="Level">50</system:Int32>
+                        <system:Single x:Key="NatureBoost">1</system:Single>
+                    </local:DataRow.Resources>
+                    <local:DataRow.Stat>
+                        <MultiBinding Converter="{StaticResource BaseStatToLevelStatsConverter}">
+                            <Binding Path="Stats"
+                                     RelativeSource="{RelativeSource AncestorType=local:FullStatsDisplayer}" />
+                            <Binding Source="{StaticResource Level}" />
+                            <Binding Source="{StaticResource NatureBoost}" />
+                        </MultiBinding>
+                    </local:DataRow.Stat>
+                </local:DataRow>
+                <local:DataRow Title="Level 50+">
+                    <local:DataRow.Resources>
+                        <system:Int32 x:Key="Level">50</system:Int32>
+                        <system:Single x:Key="NatureBoost">1.1</system:Single>
+                    </local:DataRow.Resources>
+                    <local:DataRow.Stat>
+                        <MultiBinding Converter="{StaticResource BaseStatToLevelStatsConverter}">
+                            <Binding Path="Stats"
+                                     RelativeSource="{RelativeSource AncestorType=local:FullStatsDisplayer}" />
+                            <Binding Source="{StaticResource Level}" />
+                            <Binding Source="{StaticResource NatureBoost}" />
+                        </MultiBinding>
+                    </local:DataRow.Stat>
+                </local:DataRow>
+
+                <local:DataRow Title="Level 75-">
+                    <local:DataRow.Resources>
+                        <system:Int32 x:Key="Level">75</system:Int32>
+                        <system:Single x:Key="NatureBoost">0.9</system:Single>
+                    </local:DataRow.Resources>
+                    <local:DataRow.Stat>
+                        <MultiBinding Converter="{StaticResource BaseStatToLevelStatsConverter}">
+                            <Binding Path="Stats"
+                                     RelativeSource="{RelativeSource AncestorType=local:FullStatsDisplayer}" />
+                            <Binding Source="{StaticResource Level}" />
+                            <Binding Source="{StaticResource NatureBoost}" />
+                        </MultiBinding>
+                    </local:DataRow.Stat>
+                </local:DataRow>
+                <local:DataRow Title="Level 75">
+                    <local:DataRow.Resources>
+                        <system:Int32 x:Key="Level">75</system:Int32>
+                        <system:Single x:Key="NatureBoost">1</system:Single>
+                    </local:DataRow.Resources>
+                    <local:DataRow.Stat>
+                        <MultiBinding Converter="{StaticResource BaseStatToLevelStatsConverter}">
+                            <Binding Path="Stats"
+                                     RelativeSource="{RelativeSource AncestorType=local:FullStatsDisplayer}" />
+                            <Binding Source="{StaticResource Level}" />
+                            <Binding Source="{StaticResource NatureBoost}" />
+                        </MultiBinding>
+                    </local:DataRow.Stat>
+                </local:DataRow>
+                <local:DataRow Title="Level 75+">
+                    <local:DataRow.Resources>
+                        <system:Int32 x:Key="Level">75</system:Int32>
+                        <system:Single x:Key="NatureBoost">1.1</system:Single>
+                    </local:DataRow.Resources>
+                    <local:DataRow.Stat>
+                        <MultiBinding Converter="{StaticResource BaseStatToLevelStatsConverter}">
+                            <Binding Path="Stats"
+                                     RelativeSource="{RelativeSource AncestorType=local:FullStatsDisplayer}" />
+                            <Binding Source="{StaticResource Level}" />
+                            <Binding Source="{StaticResource NatureBoost}" />
+                        </MultiBinding>
+                    </local:DataRow.Stat>
+                </local:DataRow>
+
+                <local:DataRow Title="Level 100-">
+                    <local:DataRow.Resources>
+                        <system:Int32 x:Key="Level">100</system:Int32>
+                        <system:Single x:Key="NatureBoost">0.9</system:Single>
+                    </local:DataRow.Resources>
+                    <local:DataRow.Stat>
+                        <MultiBinding Converter="{StaticResource BaseStatToLevelStatsConverter}">
+                            <Binding Path="Stats"
+                                     RelativeSource="{RelativeSource AncestorType=local:FullStatsDisplayer}" />
+                            <Binding Source="{StaticResource Level}" />
+                            <Binding Source="{StaticResource NatureBoost}" />
+                        </MultiBinding>
+                    </local:DataRow.Stat>
+                </local:DataRow>
+                <local:DataRow Title="Level 100">
+                    <local:DataRow.Resources>
+                        <system:Int32 x:Key="Level">100</system:Int32>
+                        <system:Single x:Key="NatureBoost">1</system:Single>
+                    </local:DataRow.Resources>
+                    <local:DataRow.Stat>
+                        <MultiBinding Converter="{StaticResource BaseStatToLevelStatsConverter}">
+                            <Binding Path="Stats"
+                                     RelativeSource="{RelativeSource AncestorType=local:FullStatsDisplayer}" />
+                            <Binding Source="{StaticResource Level}" />
+                            <Binding Source="{StaticResource NatureBoost}" />
+                        </MultiBinding>
+                    </local:DataRow.Stat>
+                </local:DataRow>
+                <local:DataRow Title="Level 100+">
+                    <local:DataRow.Resources>
+                        <system:Int32 x:Key="Level">100</system:Int32>
+                        <system:Single x:Key="NatureBoost">1.1</system:Single>
+                    </local:DataRow.Resources>
+                    <local:DataRow.Stat>
+                        <MultiBinding Converter="{StaticResource BaseStatToLevelStatsConverter}">
+                            <Binding Path="Stats"
+                                     RelativeSource="{RelativeSource AncestorType=local:FullStatsDisplayer}" />
+                            <Binding Source="{StaticResource Level}" />
+                            <Binding Source="{StaticResource NatureBoost}" />
+                        </MultiBinding>
+                    </local:DataRow.Stat>
+                </local:DataRow>
+
+                <local:DataRow Title="Level 200-">
+                    <local:DataRow.Resources>
+                        <system:Int32 x:Key="Level">200</system:Int32>
+                        <system:Single x:Key="NatureBoost">0.9</system:Single>
+                    </local:DataRow.Resources>
+                    <local:DataRow.Stat>
+                        <MultiBinding Converter="{StaticResource BaseStatToLevelStatsConverter}">
+                            <Binding Path="Stats"
+                                     RelativeSource="{RelativeSource AncestorType=local:FullStatsDisplayer}" />
+                            <Binding Source="{StaticResource Level}" />
+                            <Binding Source="{StaticResource NatureBoost}" />
+                        </MultiBinding>
+                    </local:DataRow.Stat>
+                </local:DataRow>
+                <local:DataRow Title="Level 200">
+                    <local:DataRow.Resources>
+                        <system:Int32 x:Key="Level">200</system:Int32>
+                        <system:Single x:Key="NatureBoost">1</system:Single>
+                    </local:DataRow.Resources>
+                    <local:DataRow.Stat>
+                        <MultiBinding Converter="{StaticResource BaseStatToLevelStatsConverter}">
+                            <Binding Path="Stats"
+                                     RelativeSource="{RelativeSource AncestorType=local:FullStatsDisplayer}" />
+                            <Binding Source="{StaticResource Level}" />
+                            <Binding Source="{StaticResource NatureBoost}" />
+                        </MultiBinding>
+                    </local:DataRow.Stat>
+                </local:DataRow>
+                <local:DataRow Title="Level 200+">
+                    <local:DataRow.Resources>
+                        <system:Int32 x:Key="Level">200</system:Int32>
+                        <system:Single x:Key="NatureBoost">1.1</system:Single>
+                    </local:DataRow.Resources>
+                    <local:DataRow.Stat>
+                        <MultiBinding Converter="{StaticResource BaseStatToLevelStatsConverter}">
+                            <Binding Path="Stats"
+                                     RelativeSource="{RelativeSource AncestorType=local:FullStatsDisplayer}" />
+                            <Binding Source="{StaticResource Level}" />
+                            <Binding Source="{StaticResource NatureBoost}" />
+                        </MultiBinding>
+                    </local:DataRow.Stat>
+                </local:DataRow>
+
+            </WrapPanel>
+        </WrapPanel>
+
+    </Grid>
+</local:BaseStatsDisplayer>
