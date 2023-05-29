@@ -1,14 +1,16 @@
-﻿<local:BaseStatsDisplayer x:Class="App_Intro.FullStatsDisplayer"
+﻿<local:BaseStatsDisplayer x:Class="App_Intro.views.FullStatsDisplayer"
                           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-                          xmlns:local="clr-namespace:App_Intro"
+                          xmlns:local="clr-namespace:App_Intro.views"
                           xmlns:system="clr-namespace:System;assembly=System.Runtime"
+                          xmlns:converters="clr-namespace:App_Intro.converters"
+                          xmlns:views="clr-namespace:App_Intro.views"
                           mc:Ignorable="d">
     <Grid >
         <Grid.Resources>
-            <local:BaseStatToLevelStatsConverter x:Key="BaseStatToLevelStatsConverter" />
+            <converters:BaseStatToLevelStatsConverter x:Key="BaseStatToLevelStatsConverter" />
         </Grid.Resources>
 
         <Grid>
@@ -53,220 +55,220 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <local:DataColumn Title="Level 25-" Grid.Column="0">
-                    <local:DataColumn.Resources>
+                <views:DataColumn Title="Level 25-" Grid.Column="0">
+                    <views:DataColumn.Resources>
                         <system:Int32 x:Key="Level">25</system:Int32>
                         <system:Single x:Key="NatureBoost">0.9</system:Single>
-                    </local:DataColumn.Resources>
-                    <local:DataColumn.Stat>
+                    </views:DataColumn.Resources>
+                    <views:DataColumn.Stat>
                         <MultiBinding Converter="{StaticResource BaseStatToLevelStatsConverter}">
                             <Binding Path="Stats"
                                      RelativeSource="{RelativeSource AncestorType=local:FullStatsDisplayer}" />
                             <Binding Source="{StaticResource Level}" />
                             <Binding Source="{StaticResource NatureBoost}" />
                         </MultiBinding>
-                    </local:DataColumn.Stat>
-                </local:DataColumn>
-                <local:DataColumn Title="Level 25" Grid.Column="1">
-                    <local:DataColumn.Resources>
+                    </views:DataColumn.Stat>
+                </views:DataColumn>
+                <views:DataColumn Title="Level 25" Grid.Column="1">
+                    <views:DataColumn.Resources>
                         <system:Int32 x:Key="Level">25</system:Int32>
                         <system:Single x:Key="NatureBoost">1</system:Single>
-                    </local:DataColumn.Resources>
-                    <local:DataColumn.Stat>
+                    </views:DataColumn.Resources>
+                    <views:DataColumn.Stat>
                         <MultiBinding Converter="{StaticResource BaseStatToLevelStatsConverter}">
                             <Binding Path="Stats"
                                      RelativeSource="{RelativeSource AncestorType=local:FullStatsDisplayer}" />
                             <Binding Source="{StaticResource Level}" />
                             <Binding Source="{StaticResource NatureBoost}" />
                         </MultiBinding>
-                    </local:DataColumn.Stat>
-                </local:DataColumn>
-                <local:DataColumn Title="Level 25+" Grid.Column="2">
-                    <local:DataColumn.Resources>
+                    </views:DataColumn.Stat>
+                </views:DataColumn>
+                <views:DataColumn Title="Level 25+" Grid.Column="2">
+                    <views:DataColumn.Resources>
                         <system:Int32 x:Key="Level">25</system:Int32>
                         <system:Single x:Key="NatureBoost">1.1</system:Single>
-                    </local:DataColumn.Resources>
-                    <local:DataColumn.Stat>
+                    </views:DataColumn.Resources>
+                    <views:DataColumn.Stat>
                         <MultiBinding Converter="{StaticResource BaseStatToLevelStatsConverter}">
                             <Binding Path="Stats"
                                      RelativeSource="{RelativeSource AncestorType=local:FullStatsDisplayer}" />
                             <Binding Source="{StaticResource Level}" />
                             <Binding Source="{StaticResource NatureBoost}" />
                         </MultiBinding>
-                    </local:DataColumn.Stat>
-                </local:DataColumn>
+                    </views:DataColumn.Stat>
+                </views:DataColumn>
 
-                <local:DataColumn Title="Level 50-" Grid.Column="3">
-                    <local:DataColumn.Resources>
+                <views:DataColumn Title="Level 50-" Grid.Column="3">
+                    <views:DataColumn.Resources>
                         <system:Int32 x:Key="Level">50</system:Int32>
                         <system:Single x:Key="NatureBoost">0.9</system:Single>
-                    </local:DataColumn.Resources>
-                    <local:DataColumn.Stat>
+                    </views:DataColumn.Resources>
+                    <views:DataColumn.Stat>
                         <MultiBinding Converter="{StaticResource BaseStatToLevelStatsConverter}">
                             <Binding Path="Stats"
                                      RelativeSource="{RelativeSource AncestorType=local:FullStatsDisplayer}" />
                             <Binding Source="{StaticResource Level}" />
                             <Binding Source="{StaticResource NatureBoost}" />
                         </MultiBinding>
-                    </local:DataColumn.Stat>
-                </local:DataColumn>
-                <local:DataColumn Title="Level 50" Grid.Column="4">
-                    <local:DataColumn.Resources>
+                    </views:DataColumn.Stat>
+                </views:DataColumn>
+                <views:DataColumn Title="Level 50" Grid.Column="4">
+                    <views:DataColumn.Resources>
                         <system:Int32 x:Key="Level">50</system:Int32>
                         <system:Single x:Key="NatureBoost">1</system:Single>
-                    </local:DataColumn.Resources>
-                    <local:DataColumn.Stat>
+                    </views:DataColumn.Resources>
+                    <views:DataColumn.Stat>
                         <MultiBinding Converter="{StaticResource BaseStatToLevelStatsConverter}">
                             <Binding Path="Stats"
                                      RelativeSource="{RelativeSource AncestorType=local:FullStatsDisplayer}" />
                             <Binding Source="{StaticResource Level}" />
                             <Binding Source="{StaticResource NatureBoost}" />
                         </MultiBinding>
-                    </local:DataColumn.Stat>
-                </local:DataColumn>
-                <local:DataColumn Title="Level 50+" Grid.Column="5">
-                    <local:DataColumn.Resources>
+                    </views:DataColumn.Stat>
+                </views:DataColumn>
+                <views:DataColumn Title="Level 50+" Grid.Column="5">
+                    <views:DataColumn.Resources>
                         <system:Int32 x:Key="Level">50</system:Int32>
                         <system:Single x:Key="NatureBoost">1.1</system:Single>
-                    </local:DataColumn.Resources>
-                    <local:DataColumn.Stat>
+                    </views:DataColumn.Resources>
+                    <views:DataColumn.Stat>
                         <MultiBinding Converter="{StaticResource BaseStatToLevelStatsConverter}">
                             <Binding Path="Stats"
                                      RelativeSource="{RelativeSource AncestorType=local:FullStatsDisplayer}" />
                             <Binding Source="{StaticResource Level}" />
                             <Binding Source="{StaticResource NatureBoost}" />
                         </MultiBinding>
-                    </local:DataColumn.Stat>
-                </local:DataColumn>
+                    </views:DataColumn.Stat>
+                </views:DataColumn>
 
-                <local:DataColumn Title="Level 75-" Grid.Column="6">
-                    <local:DataColumn.Resources>
+                <views:DataColumn Title="Level 75-" Grid.Column="6">
+                    <views:DataColumn.Resources>
                         <system:Int32 x:Key="Level">75</system:Int32>
                         <system:Single x:Key="NatureBoost">0.9</system:Single>
-                    </local:DataColumn.Resources>
-                    <local:DataColumn.Stat>
+                    </views:DataColumn.Resources>
+                    <views:DataColumn.Stat>
                         <MultiBinding Converter="{StaticResource BaseStatToLevelStatsConverter}">
                             <Binding Path="Stats"
                                      RelativeSource="{RelativeSource AncestorType=local:FullStatsDisplayer}" />
                             <Binding Source="{StaticResource Level}" />
                             <Binding Source="{StaticResource NatureBoost}" />
                         </MultiBinding>
-                    </local:DataColumn.Stat>
-                </local:DataColumn>
-                <local:DataColumn Title="Level 75" Grid.Column="7">
-                    <local:DataColumn.Resources>
+                    </views:DataColumn.Stat>
+                </views:DataColumn>
+                <views:DataColumn Title="Level 75" Grid.Column="7">
+                    <views:DataColumn.Resources>
                         <system:Int32 x:Key="Level">75</system:Int32>
                         <system:Single x:Key="NatureBoost">1</system:Single>
-                    </local:DataColumn.Resources>
-                    <local:DataColumn.Stat>
+                    </views:DataColumn.Resources>
+                    <views:DataColumn.Stat>
                         <MultiBinding Converter="{StaticResource BaseStatToLevelStatsConverter}">
                             <Binding Path="Stats"
                                      RelativeSource="{RelativeSource AncestorType=local:FullStatsDisplayer}" />
                             <Binding Source="{StaticResource Level}" />
                             <Binding Source="{StaticResource NatureBoost}" />
                         </MultiBinding>
-                    </local:DataColumn.Stat>
-                </local:DataColumn>
-                <local:DataColumn Title="Level 75+" Grid.Column="8">
-                    <local:DataColumn.Resources>
+                    </views:DataColumn.Stat>
+                </views:DataColumn>
+                <views:DataColumn Title="Level 75+" Grid.Column="8">
+                    <views:DataColumn.Resources>
                         <system:Int32 x:Key="Level">75</system:Int32>
                         <system:Single x:Key="NatureBoost">1.1</system:Single>
-                    </local:DataColumn.Resources>
-                    <local:DataColumn.Stat>
+                    </views:DataColumn.Resources>
+                    <views:DataColumn.Stat>
                         <MultiBinding Converter="{StaticResource BaseStatToLevelStatsConverter}">
                             <Binding Path="Stats"
                                      RelativeSource="{RelativeSource AncestorType=local:FullStatsDisplayer}" />
                             <Binding Source="{StaticResource Level}" />
                             <Binding Source="{StaticResource NatureBoost}" />
                         </MultiBinding>
-                    </local:DataColumn.Stat>
-                </local:DataColumn>
+                    </views:DataColumn.Stat>
+                </views:DataColumn>
 
-                <local:DataColumn Title="Level 100-" Grid.Column="9">
-                    <local:DataColumn.Resources>
+                <views:DataColumn Title="Level 100-" Grid.Column="9">
+                    <views:DataColumn.Resources>
                         <system:Int32 x:Key="Level">100</system:Int32>
                         <system:Single x:Key="NatureBoost">0.9</system:Single>
-                    </local:DataColumn.Resources>
-                    <local:DataColumn.Stat>
+                    </views:DataColumn.Resources>
+                    <views:DataColumn.Stat>
                         <MultiBinding Converter="{StaticResource BaseStatToLevelStatsConverter}">
                             <Binding Path="Stats"
                                      RelativeSource="{RelativeSource AncestorType=local:FullStatsDisplayer}" />
                             <Binding Source="{StaticResource Level}" />
                             <Binding Source="{StaticResource NatureBoost}" />
                         </MultiBinding>
-                    </local:DataColumn.Stat>
-                </local:DataColumn>
-                <local:DataColumn Title="Level 100" Grid.Column="10">
-                    <local:DataColumn.Resources>
+                    </views:DataColumn.Stat>
+                </views:DataColumn>
+                <views:DataColumn Title="Level 100" Grid.Column="10">
+                    <views:DataColumn.Resources>
                         <system:Int32 x:Key="Level">100</system:Int32>
                         <system:Single x:Key="NatureBoost">1</system:Single>
-                    </local:DataColumn.Resources>
-                    <local:DataColumn.Stat>
+                    </views:DataColumn.Resources>
+                    <views:DataColumn.Stat>
                         <MultiBinding Converter="{StaticResource BaseStatToLevelStatsConverter}">
                             <Binding Path="Stats"
                                      RelativeSource="{RelativeSource AncestorType=local:FullStatsDisplayer}" />
                             <Binding Source="{StaticResource Level}" />
                             <Binding Source="{StaticResource NatureBoost}" />
                         </MultiBinding>
-                    </local:DataColumn.Stat>
-                </local:DataColumn>
-                <local:DataColumn Title="Level 100+" Grid.Column="11">
-                    <local:DataColumn.Resources>
+                    </views:DataColumn.Stat>
+                </views:DataColumn>
+                <views:DataColumn Title="Level 100+" Grid.Column="11">
+                    <views:DataColumn.Resources>
                         <system:Int32 x:Key="Level">100</system:Int32>
                         <system:Single x:Key="NatureBoost">1.1</system:Single>
-                    </local:DataColumn.Resources>
-                    <local:DataColumn.Stat>
+                    </views:DataColumn.Resources>
+                    <views:DataColumn.Stat>
                         <MultiBinding Converter="{StaticResource BaseStatToLevelStatsConverter}">
                             <Binding Path="Stats"
                                      RelativeSource="{RelativeSource AncestorType=local:FullStatsDisplayer}" />
                             <Binding Source="{StaticResource Level}" />
                             <Binding Source="{StaticResource NatureBoost}" />
                         </MultiBinding>
-                    </local:DataColumn.Stat>
-                </local:DataColumn>
+                    </views:DataColumn.Stat>
+                </views:DataColumn>
 
-                <local:DataColumn Title="Level 200-" Grid.Column="12">
-                    <local:DataColumn.Resources>
+                <views:DataColumn Title="Level 200-" Grid.Column="12">
+                    <views:DataColumn.Resources>
                         <system:Int32 x:Key="Level">200</system:Int32>
                         <system:Single x:Key="NatureBoost">0.9</system:Single>
-                    </local:DataColumn.Resources>
-                    <local:DataColumn.Stat>
+                    </views:DataColumn.Resources>
+                    <views:DataColumn.Stat>
                         <MultiBinding Converter="{StaticResource BaseStatToLevelStatsConverter}">
                             <Binding Path="Stats"
                                      RelativeSource="{RelativeSource AncestorType=local:FullStatsDisplayer}" />
                             <Binding Source="{StaticResource Level}" />
                             <Binding Source="{StaticResource NatureBoost}" />
                         </MultiBinding>
-                    </local:DataColumn.Stat>
-                </local:DataColumn>
-                <local:DataColumn Title="Level 200" Grid.Column="13">
-                    <local:DataColumn.Resources>
+                    </views:DataColumn.Stat>
+                </views:DataColumn>
+                <views:DataColumn Title="Level 200" Grid.Column="13">
+                    <views:DataColumn.Resources>
                         <system:Int32 x:Key="Level">200</system:Int32>
                         <system:Single x:Key="NatureBoost">1</system:Single>
-                    </local:DataColumn.Resources>
-                    <local:DataColumn.Stat>
+                    </views:DataColumn.Resources>
+                    <views:DataColumn.Stat>
                         <MultiBinding Converter="{StaticResource BaseStatToLevelStatsConverter}">
                             <Binding Path="Stats"
                                      RelativeSource="{RelativeSource AncestorType=local:FullStatsDisplayer}" />
                             <Binding Source="{StaticResource Level}" />
                             <Binding Source="{StaticResource NatureBoost}" />
                         </MultiBinding>
-                    </local:DataColumn.Stat>
-                </local:DataColumn>
-                <local:DataColumn Title="Level 200+" Grid.Column="14">
-                    <local:DataColumn.Resources>
+                    </views:DataColumn.Stat>
+                </views:DataColumn>
+                <views:DataColumn Title="Level 200+" Grid.Column="14">
+                    <views:DataColumn.Resources>
                         <system:Int32 x:Key="Level">200</system:Int32>
                         <system:Single x:Key="NatureBoost">1.1</system:Single>
-                    </local:DataColumn.Resources>
-                    <local:DataColumn.Stat>
+                    </views:DataColumn.Resources>
+                    <views:DataColumn.Stat>
                         <MultiBinding Converter="{StaticResource BaseStatToLevelStatsConverter}">
                             <Binding Path="Stats"
                                      RelativeSource="{RelativeSource AncestorType=local:FullStatsDisplayer}" />
                             <Binding Source="{StaticResource Level}" />
                             <Binding Source="{StaticResource NatureBoost}" />
                         </MultiBinding>
-                    </local:DataColumn.Stat>
-                </local:DataColumn>
+                    </views:DataColumn.Stat>
+                </views:DataColumn>
 
             </Grid>
             

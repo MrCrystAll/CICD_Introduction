@@ -1,9 +1,11 @@
-﻿<Window x:Class="App_Intro.Details"
+﻿<Window x:Class="App_Intro.views.Details"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:appIntro="clr-namespace:App_Intro"
+        xmlns:model="clr-namespace:App_Intro.model"
+        xmlns:views="clr-namespace:App_Intro.views"
         mc:Ignorable="d"
         Title="Details" Height="700" Width="800">
     <ScrollViewer>
@@ -19,7 +21,7 @@
             <Image Source="{Binding Path=Sprite}" Width="50" HorizontalAlignment="Left" />
 
             <StackPanel Margin="10">
-                <appIntro:StatsDisplayer Stats="{Binding BaseStats}" />
+                <views:StatsDisplayer Stats="{Binding BaseStats}" />
 
                 <WrapPanel Margin="0,10" MinWidth="150">
                     <TextBlock Text="Type(s) : " Margin="0,0,10,0" />
@@ -49,7 +51,7 @@
                         </TextBox>
                     </WrapPanel>
                     <Border BorderThickness="1" BorderBrush="Black" CornerRadius="5" Padding="5"
-                            d:DataContext="{d:DesignInstance appIntro:Pokemon}">
+                            d:DataContext="{d:DesignInstance model:Pokemon}">
                         <Border.Resources>
                             <Style TargetType="ContentControl" x:Key="Dark">
                                 <Setter Property="Background" Value="Gray" />
@@ -172,8 +174,8 @@
                         </WrapPanel>
                     </Border>
                 </WrapPanel>
-                <appIntro:StatsDisplayer x:Name="NewStats" />
-                <appIntro:FullStatsDisplayer Stats="{Binding BaseStats}" Margin="0,10"/>
+                <views:StatsDisplayer x:Name="NewStats" />
+                <views:FullStatsDisplayer Stats="{Binding BaseStats}" Margin="0,10"/>
 
             </StackPanel>
 

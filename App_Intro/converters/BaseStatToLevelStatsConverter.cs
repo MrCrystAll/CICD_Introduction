@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Globalization;
 using System.Windows.Data;
+using App_Intro.model;
 
-namespace App_Intro;
+namespace App_Intro.converters;
 
 public class BaseStatToLevelStatsConverter : IMultiValueConverter
 {

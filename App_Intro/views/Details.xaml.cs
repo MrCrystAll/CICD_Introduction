@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Specialized;
+﻿using System.Collections.Specialized;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Input;
+using App_Intro.model;
 
-namespace App_Intro;
+namespace App_Intro.views;
 
 public partial class Details : Window
 {

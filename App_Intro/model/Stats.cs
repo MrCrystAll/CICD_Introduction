@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Text.Json.Serialization;
 
-namespace App_Intro;
+namespace App_Intro.model;
 
 public class Stats : INotifyPropertyChanged
 {

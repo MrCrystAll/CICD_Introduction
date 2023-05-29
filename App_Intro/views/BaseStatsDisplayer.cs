@@ -1,10 +1,8 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
+using App_Intro.model;
 
-namespace App_Intro;
+namespace App_Intro.views;
 
 public abstract class BaseStatsDisplayer : UserControl
 {

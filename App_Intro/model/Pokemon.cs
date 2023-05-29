@@ -1,7 +1,6 @@
 ﻿using System.Text.Json.Serialization;
-using Newtonsoft.Json;
 
-namespace App_Intro;
+namespace App_Intro.model;
 
 public class Pokemon
 {
@@ -31,4 +30,10 @@ public class Pokemon
 
     [JsonPropertyName("type")]
     public string[] Types { get; set; }
+
+    [JsonPropertyName("species")] public string Species { get; set; }
+    [JsonPropertyName("description")] public string Description { get; set; }
+    [JsonPropertyName("evolution")] public EvolutionProfile Evolution { get; set; }
+    [JsonPropertyName("profile")] public PokemonProfile Profile { get; set; }
+    
 }

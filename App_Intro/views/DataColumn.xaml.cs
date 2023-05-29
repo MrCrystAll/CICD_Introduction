@@ -1,7 +1,8 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using App_Intro.model;
 
-namespace App_Intro;
+namespace App_Intro.views;
 
 public partial class DataColumn : UserControl
 {
