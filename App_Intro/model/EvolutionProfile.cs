@@ -8,20 +8,21 @@ namespace App_Intro.model;
 public class EvolutionProfile
 {
     [JsonPropertyName("prev")]
-    private string[] _previous { get; set; }
+    public string[] Previous { get; set; }
     
     [JsonPropertyName("next")]
-    private string[][] _next { get; set; }
+    public string[][] Next { get; set; }
 
-    public Pokemon PreviousPokemon => (Application.Current as App).Manager.Pokemons[int.Parse(_previous[0]) - 1];
+    public Pokemon PreviousPokemon => Previous is null ? null : (Application.Current as App).Manager.Pokemons[int.Parse(Previous[0]) - 1];
 
     private Pokemon[] _getNextPokemons()
     {
-        var temp = new Pokemon[_next.Length];
+        if (Next is null) return null;
+        var temp = new Pokemon[Next.Length];
 
-        for (int i = 0; i < _next.Length; i++)
+        for (int i = 0; i < Next.Length; i++)
         {
-            temp[i] = (Application.Current as App).Manager.Pokemons[int.Parse(_next[i][0]) - 1];
+            temp[i] = (Application.Current as App).Manager.Pokemons[int.Parse(Next[i][0]) - 1];
         }
 
         return temp;
